@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
 // import './App.css';
+import Footer from './compenents/footer'
 
 class App extends Component {
   render() {
@@ -10,6 +11,7 @@ class App extends Component {
        {
           this.props.children
         }
+        <Footer/>
      </div>
     );
   }
