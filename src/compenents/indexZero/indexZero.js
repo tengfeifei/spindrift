@@ -2,6 +2,8 @@ import React from 'react'
 import ReactSwipe from 'react-swipe';
 import axios from 'axios'
 import obj from './indexZero.module.scss'
+import ReactDOM from 'react-dom'
+import { PullToRefresh, Button } from 'antd-mobile';
 
 
 class Zero extends React.Component{
@@ -11,12 +13,39 @@ constructor(props) {
 		
 		  this.state = {
 		  	bannerList:[],
-		  	imgList:null
+		  	imgList:null,
+		  	 refreshing: false,
+		      up: true,
+		      height: document.documentElement.clientHeight,
+		      data: [],
 		  };
 		}
 
 	render(){
 		return <div>
+		<PullToRefresh
+        damping={180}
+        ref={el => this.ptr = el}
+        style={{
+          height: this.state.height,
+          overflow: 'auto',
+        }}
+        
+        direction={'up'}
+        refreshing={this.state.refreshing}
+        onRefresh={() => {
+          this.setState({ refreshing: true });
+         axios({
+         	url:'/v2/page?pageId=1&tabId=1&currentPage=2&pageSize=10&_=1551182718385'
+         }).then((res)=>
+                  	this.setState({
+         		imgList:[...this.state.imgList,...res.data.data.modules],
+         		refreshing:false
+         	})
+         
+         )
+        }}
+      >
 			{
 				this.state.bannerList.length?
 			<ReactSwipe
@@ -33,9 +62,8 @@ constructor(props) {
 }
 	{
 		this.state.imgList?
-		
-			this.state.imgList.map((item,index)=>
-			<div className={obj.list}>
+       this.state.imgList.map((item,index)=>
+			<div className={obj.list} key={item.moduleId}>
 				<div className={obj.title}>
 					<h1>{item.moduleName}</h1>
 					<h3>{item.moduleDescription}</h3>
@@ -47,14 +75,16 @@ constructor(props) {
 				</div>
 			</div>
 				)
-		
+     
 		
 		:null
 	}
+	 </PullToRefresh>
 		</div>
 	}
 	
 	componentDidMount(){
+		 
 		axios({
 			url:'/v2/page?pageId=1&tabId=1&currentPage=1&pageSize=10&_=1551141913763'
 
