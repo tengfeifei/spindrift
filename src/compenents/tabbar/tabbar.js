@@ -7,24 +7,24 @@ import obj from './tabbar.module.scss'
 class Tabbar extends Component {
   render() {
     return <div>
-         		<ul className={obj.footer}>  
+         		<ul className={obj.tabbar}>  
              		 <li>
-             		 	<a href='java'             
+             		 	<NavLink to='#' activeClassName={obj.active} replace >             
                   			推荐
               			</NavLink>
               		 </li> 
               		 <li>
-             		 	<NavLink to='/class' activeClassName={obj.active} replace >             
+             		 	<NavLink to='#' activeClassName={obj.active} replace >             
                   		  家具
               			</NavLink>
               		 </li>
               		 <li>
-             		 	<NavLink to='/shopping' activeClassName={obj.active} replace >             
+             		 	<NavLink to='#' activeClassName={obj.active} replace >             
                   			家居
               			</NavLink>
               		 </li>
               		 <li>
-             		 	<NavLink to='/info' activeClassName={obj.active} replace >             
+             		 	<NavLink to='#' activeClassName={obj.active} replace >             
                   			活动
               			</NavLink>
               		 </li>

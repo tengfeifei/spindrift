@@ -1,0 +1,25 @@
+.tabbar{
+	height: 45px;
+    line-height: 45px;
+    font-size: 13px;
+    background: #fff;
+    overflow: hidden;
+    list-style: none;
+    li{
+    float: left;
+    color: #808080;
+    margin: 0 21px;
+    font-size:13px;
+    padding: 0 11px;
+    a{
+    display: block;
+    color: #000;
+    text-decoration: none;
+    }
+    }
+    li.active{
+    border-bottom: 2px solid #202020;
+    color: #000;
+    height:43px;
+    }
+}

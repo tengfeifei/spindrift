@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactSwipe from 'react-swipe';
 import axios from 'axios'
+import Tabbar from '../../compenents/tabbar/tabbar'
 
 class Index extends React.Component{
 
@@ -16,6 +17,7 @@ constructor(props) {
 		return <div>
 		
 			Index
+			<Tabbar></Tabbar>
 			{
 				this.state.bannerList.length?
 			<ReactSwipe
