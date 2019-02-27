@@ -1,10 +1,11 @@
 import React from 'react'
-import ReactSwipe from 'react-swipe';
 import axios from 'axios';
 import furnishing from './homefurnishing.module.scss';
 import Tabbar from '../../compenents/tabbar/tabbar';
 import Swiper from 'swiper';
 import "swiper/dist/css/swiper.css";
+import ReactSwipe from 'react-swipe';
+
 class Homefurnishing extends React.Component{
 	constructor(props){
 		super(props);
