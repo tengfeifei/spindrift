@@ -12,7 +12,8 @@ class Three extends React.Component{
 	  	bannerList:[],
 	  	dataList:[],
 	  	products:[],
-	  	imgList:[]
+	  	imgList:[],
+	  	list:[]
 	  };
 	}
 
@@ -33,10 +34,6 @@ class Three extends React.Component{
 
       :null
 }
-
-
-
-
 		{
 			this.state.dataList.length?
 			this.state.dataList.map((item)=>
@@ -50,6 +47,47 @@ class Three extends React.Component{
 				)
 			:null
 		}
+		{
+			this.state.products.length?
+			this.state.products.map(item=>
+			<div key={item.moduleId} className={obj.list}>
+					<div className={obj.one}>
+						<h1>{item.moduleName}</h1>
+					</div>
+					<div className={obj.two}>
+						<div>
+							<div>
+								{
+									this.state.list.length?
+									this.state.list.map((item,index)=>{
+											if (index==6) {
+												return
+											}
+										return	<div key={item.productId}>
+													<a href='javascript:;'>
+														<img src={item.productImg}/>
+														<div>
+																<p>{item.productName}</p>
+																<span>¥{item.sellPrice}</span>
+														</div>
+													</a>
+											</div>
+										}
+									)
+									
+									:null
+								}
+							</div>
+						</div>
+					</div>
+					<div className={obj.three}>
+						<a href='javascript:;'>查看全部</a>
+					</div>
+			</div>
+			)
+			:null
+
+		}
 
 		</div>
 	}
@@ -59,10 +97,12 @@ class Three extends React.Component{
 			url:'/v2/page?pageId=1&tabId=10010&currentPage=1&pageSize=10&_=1551263481513'
 
 		}).then(res=>{
-			console.log(res.data.data.modules.slice(1,2))
+			console.log(res.data.data.modules[6])
 			this.setState({
 				bannerList:res.data.data.modules[0].moduleContent.banners,
 				dataList:res.data.data.modules.slice(1,6),
+				products:[res.data.data.modules[6]],
+				list:res.data.data.modules[6].moduleContent.products
 				
 			})
 		})
