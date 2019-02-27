@@ -40,7 +40,6 @@ constructor(props) {
          axios({
          	url:`/v2/page?pageId=1&tabId=1&currentPage=${this.state.count}&pageSize=10&_=1551182718385`
          }).then((res)=>{
-         	console.log(res.data.data.modules)
          	if(res.data.data.modules.length==0){
          		this.setState({
          			refreshing:false,
@@ -116,7 +115,6 @@ constructor(props) {
 			url:'/v2/page?pageId=1&tabId=1&currentPage=1&pageSize=10&_=1551141913763'
 
 		}).then(res=>{
-			console.log(res.data.data.modules)
 			this.setState({
 				bannerList:res.data.data.modules[0].moduleContent.banners,
 				imgList:res.data.data.modules.slice(1)
