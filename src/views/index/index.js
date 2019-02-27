@@ -17,6 +17,10 @@ class Index extends React.Component{
 	  };
 	}
 	render(){
+<<<<<<< HEAD
+		return <div>
+			<Tabbar></Tabbar>
+=======
 		return <div className={index.container}>
 		
 			<div className={index.header}>
@@ -34,6 +38,7 @@ class Index extends React.Component{
 				})
 			}
 			}></Tabbar>
+>>>>>>> 526665d8083a47fa64d9d19fbde8f34c624b3db6
 			{
 				this.showComponent(this.state.index)
 			}
