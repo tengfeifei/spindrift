@@ -4,6 +4,7 @@ import axios from 'axios'
 import obj from './indexZero.module.scss'
 import ReactDOM from 'react-dom'
 import { PullToRefresh, Button } from 'antd-mobile';
+import {Link , NavLink} from 'react-router-dom'
 
 
 class Zero extends React.Component{
@@ -87,9 +88,9 @@ constructor(props) {
 					<h3>{item.moduleDescription}</h3>
 				</div>
 				<div className={obj.banner}>
-					<a href='javascript'>
+					<NavLink to='/list'  replace >  
 					<img src={item.moduleContent.banners[0].bannerImgSrc}/>
-					</a>
+					</NavLink>
 				</div>
 			</div>
 				}

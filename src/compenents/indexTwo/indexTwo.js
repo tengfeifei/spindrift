@@ -3,6 +3,8 @@ import ReactSwipe from 'react-swipe';
 import axios from 'axios'
 import obj from './indexTwo.module.scss'
 import Swiper from 'swiper'
+import 'swiper/dist/css/swiper.min.css'
+import 'swiper/dist/js/swiper.min.js'
 
 class TWo extends React.Component{
 
@@ -79,13 +81,9 @@ class TWo extends React.Component{
 			})
 		})
 	var swiper = new Swiper('.swiper-container', {
-      slidesPerView: 3,
+      
       spaceBetween: 30,
-      freeMode: true,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
+       freeMode: true
     });
 	}
 
