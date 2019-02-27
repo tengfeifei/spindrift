@@ -19,7 +19,15 @@ class Index extends React.Component{
 	render(){
 		return <div className={index.container}>
 		
-			Index
+			<div className={index.header}>
+				<img src='/static/titleView.png'/>
+				<div className={index.search}>
+					<img src='/static/search.png'/>
+					<input placeholder='搜索我的尖叫好物' type='text'></input>
+				</div>
+			</div>
+
+
 			<Tabbar handindex={(index)=>{
 				 this.setState({
 					index:index

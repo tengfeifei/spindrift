@@ -8,6 +8,8 @@ import Index from '../views/index/index'
 import Info from '../views/info/info'
 import Shopping from '../views/shopping/shopping'
 import Home from '../views/home/home'
+import ClassDetail from '../views/classDetail/classdetail'
+
 var router=(
 	<HashRouter>
 		<App>
@@ -19,7 +21,8 @@ var router=(
 				<Route path='/info' component={Info}></Route>
 				<Route path='/shopping' component={Shopping}></Route>
 				<Route path='/home' component={Home}></Route>
-				<Redirect from='*' to='/index'></Redirect>
+			    <Route path='/category/:myid' component={ClassDetail}></Route>
+				<Redirect from='/' to='/index' exact></Redirect>
 			</Switch>
 		</App>
 	</HashRouter>
