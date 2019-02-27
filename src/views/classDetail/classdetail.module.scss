@@ -20,18 +20,64 @@
     border:2px solid rgba(255,255,255,1);
     background: rgba(255,255,255,.7);
 }
-.imgli{
+.imglis{
+    background:#ddd;
     .imgul{
-        width: 50%;
-
+        width: 100%;
+        list-style: none;
+        background: #fff;
         li{
             float:left;
-            width: 100%;
+            width: 50%;
             height:250px;
+            margin-bottom: 1px;
+            background: #fff;
             img{
                 width: 100%;
+                display: block;
+            }
+            .claname{
+                font-size:12px;
+                color: #ccc;
+            }
+            .clap{
+                font-size: 14px;
+                color: #ccc;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
             }
 
+        }
+    }
+    .navul{
+        display:flex;
+        list-style: none;
+        margin-bottom:5px;
+        background: #fff;
+        padding:8px 0;
+        li{
+            flex:1;
+            height:40px;
+            line-height: 40px;
+            text-align: center;
+            position: relative;
+            a{
+                div{
+                    position:absolute;
+                    top:9px;
+                    right:34px;
+                    height:14px;
+                    line-height: 9px;
+                    width: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    span{
+                       flex: 1; 
+                    }
+                } 
+            }
+           
         }
     }
 }

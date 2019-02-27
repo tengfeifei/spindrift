@@ -41,15 +41,29 @@ class classNameDetail extends Component{
                 </div> 
 
             </div>
-            <div className={claobj.imgli}>
+            <div className={claobj.imglis}>
+                <ul className={claobj.navul}>
+                    <li><a href="javascript:;">上新</a></li>
+                    <li><a href="javascript:;">销量</a></li>
+                    <li>
+                        <a href="javascript:;">
+                            价格
+                            <div>
+                                <span>∧</span>
+                                <span>∨</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
                 <ul className={claobj.imgul}>
                     {
                         this.state.classlist?
                         this.state.classlist.map((item)=>
                             <li key={item.parentProductId} onClick={this.handleClickClass.bind(this)}>
                                 <img src={item.productImg}/>
-                                <p>{item.productTitle}</p>
-                                <p>{item.sellPrice}</p>
+                                <p className={claobj.clap}>{item.productTitle}</p>
+                                <span>¥{item.sellPrice}</span>
+                                <p className={claobj.claname}>{item.prizeOrSlogan} </p>
                             </li>
                             )
                         :null
