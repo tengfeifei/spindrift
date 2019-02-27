@@ -73,7 +73,7 @@ class TWo extends React.Component{
 			url:'/v2/page?pageId=1&tabId=10006&currentPage=1&pageSize=10&_=1551250803012'
 
 		}).then(res=>{
-			console.log(res.data.data.modules[1].moduleContent.products)
+			
 			this.setState({
 				bannerList:res.data.data.modules[0].moduleContent.banners,
 				dataList:res.data.data.modules[1],
