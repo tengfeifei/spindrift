@@ -15,8 +15,6 @@ constructor(props) {
 
 	render(){
 		return <div>
-		
-			Index
 			<Tabbar></Tabbar>
 			{
 				this.state.bannerList.length?

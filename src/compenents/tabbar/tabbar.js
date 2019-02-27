@@ -9,7 +9,7 @@ class Tabbar extends Component {
     return <div>
          		<ul className={obj.tabbar}>  
              		 <li>
-             		 	<NavLink to='#' activeClassName={obj.active} replace >             
+             		 	<NavLink to='/index' activeClassName={obj.active} replace >             
                   			推荐
               			</NavLink>
               		 </li> 
@@ -19,7 +19,7 @@ class Tabbar extends Component {
               			</NavLink>
               		 </li>
               		 <li>
-             		 	<NavLink to='#' activeClassName={obj.active} replace >             
+             		 	<NavLink to='/homefurnishing' activeClassName={obj.active} replace >             
                   			家居
               			</NavLink>
               		 </li>
