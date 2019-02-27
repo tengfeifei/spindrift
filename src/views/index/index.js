@@ -6,6 +6,7 @@ import Zero from '../../compenents/indexZero/indexZero'
 import One from '../../compenents/indexOne/indexOne'
 import Two from '../../compenents/indexTwo/indexTwo'
 import Three from '../../compenents/indexThree/indexThree'
+import index from './index.module.scss'
 
 class Index extends React.Component{
 	constructor(props) {
@@ -16,7 +17,7 @@ class Index extends React.Component{
 	  };
 	}
 	render(){
-		return <div>
+		return <div className={index.container}>
 		
 			Index
 			<Tabbar handindex={(index)=>{
