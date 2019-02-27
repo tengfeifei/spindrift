@@ -18,7 +18,7 @@
 
 .footer{
 	width:100%;
-	height: 55px;
+	height: 58px;
 	position: fixed;
 	margin: 0 auto;
 	bottom:0;
@@ -40,7 +40,7 @@
     position: relative;
     text-decoration: none;
     span{
-    font-size: 13px;
+    font-size: 14px;
    	display: block;
     	}
     img{
@@ -53,7 +53,8 @@
     
     a.active{
     	span{
-    		color:red;
+    		color:#000;
+            font-weight: 600
     	}
     }
 }
