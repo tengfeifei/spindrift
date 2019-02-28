@@ -7,9 +7,7 @@ import { PullToRefresh, Button } from 'antd-mobile';
 import {Link , NavLink} from 'react-router-dom';
 import BackTop from '../BackTop/backtop';
 
-
 class Zero extends React.Component{
-
 constructor(props) {
 		  super(props);
 		
