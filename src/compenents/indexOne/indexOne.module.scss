@@ -1,0 +1,97 @@
+*{
+	margin:0;
+	padding: 0;
+}
+.furniture{
+	background: #f0f0f0;
+	.bannerImg{
+		width: 100%;
+		img{
+			display: block;
+			width:100%;
+		}
+
+	}
+	.gonglue{
+		margin:10px 0 10px 0;
+		background: white;
+		h2{
+			font-size: 18px;
+			text-align: center;
+			color:#333;
+			padding: 20px 0 10px 0;
+		}
+		h3{
+			font-size: 14px;
+			text-align: center;
+			color: #808080;
+		}
+		.middel{
+		     a{
+		     	display: block;
+		     	img{
+		     		display: block;
+		     		width: 100%;
+		     	}
+		     }
+			.productdetail{
+				p{
+					width:76px;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space:nowrap;
+					height: 18px;
+					font-size: 12px;
+					color:#808080;
+				}
+				span{
+					color:black;
+				}
+
+			}
+
+		}
+	   .lookmore{
+	   	padding: 20px 0 20px 0;
+	   	text-align: center;
+	   }
+	}
+	.hotclassify{
+		background: white;
+		// margin-bottom: 10px;
+		h2{
+			font-size: 18px;
+			color:#333;
+			text-align: center;
+			padding:20px 0 10px 0;
+		}
+		.hotproducts{
+			padding-left:10px; 
+			overflow: hidden;
+			li{
+				width:110px;
+				list-style: none;
+				float: left;
+				margin-right: 10px;
+				.hotImg{
+					width: 100%;
+					img{
+						width:100%;
+					}
+
+				}
+
+			}
+		}
+	}
+	.nomore{
+		padding-top: 20px;
+		background: white;
+		height: 60px;
+		h3{
+			text-align: center;
+			font-size: 14px;
+		}
+	}
+
+}

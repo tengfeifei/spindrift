@@ -45,16 +45,18 @@ class TWo extends React.Component{
 			    <div className="swiper-wrapper">
 				   
 				   	{this.state.products.map((item)=>
-				   	<div  key={item.productId} className={obj.middel}>
-				    	<a href="javascript:;" >
-				    		<img src={item.productImg}/>
-				    	
-				    		<div>
-				    			<p>{item.productTitle}</p>
-				    			<span>￥{item.sellPrice}</span>
-				    		</div>
-				    	</a>
-				    </div>
+				   	 <div className="swiper-slide"  key={item.productId}>	
+					   	<div  className={obj.middel}>
+					    	<a href="javascript:;" >
+					    		<img src={item.productImg}/>
+					    	
+					    		<div>
+					    			<p>{item.productTitle}</p>
+					    			<span>￥{item.sellPrice}</span>
+					    		</div>
+					    	</a>
+					    </div>
+					   </div>
 				   	)}				    			
 			    </div>
  			</div>
@@ -80,12 +82,17 @@ class TWo extends React.Component{
 				products:res.data.data.modules[1].moduleContent.products
 			})
 		})
-	var swiper = new Swiper('.swiper-container', {
-      
-      spaceBetween: 30,
-       freeMode: true
-    });
+
 	}
+	componentDidUpdate(){
+			var swiper = new Swiper('.swiper-container', {
+		      slidesPerView: 3,
+		      spaceBetween: 30,
+		      freeMode: true
+		    });
+
+	}
+
 
 }
 
