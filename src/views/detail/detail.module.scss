@@ -10,6 +10,29 @@
 		font-weight: bold;
 		text-align:center;
 		line-height:60px;
+		display:flex;
+		div{
+			flex:1;
+			position:relative;
+			a{
+				position:absolute;
+				width:30px;
+				height:30px;
+				img{
+					display:block;
+					width:30px;
+					height:30px;				
+				}				
+			}
+			.homeIcon{
+				left:10px;
+				top:15px;				
+			}
+			.searchIcon{
+				right:10px;
+				top:15px;
+			}
+		}
 	}	
 	.soloDisplay{
 		width:100%;
@@ -44,13 +67,19 @@
 				// height:80px;
 			}
 		}
-		p{
+		.productIntroductionDec{
 			width:100%;
 			box-sizing: border-box;
 			padding:16px;
 			color:#888;
 			font-size:16px;
 			line-height:20px;
+		}
+		.productIntroductionSubTitle{
+			color:black;
+			font-size:18px;
+			text-align: center;
+			padding:10px 0;
 		}
 	}
 	.youMaybeLike{

@@ -14,7 +14,21 @@ class Detail extends React.Component{
 	render(){
 		return( 
 		<div className={detail.detail}>
-			<div className={detail.head}>商品详情</div>
+			<div className={detail.head}>
+				<div>
+					<a className={detail.homeIcon} href="/index">
+						<img src="/static/home.png"/>
+					</a>
+				</div>
+				<div>
+					<span>商品详情</span>
+				</div>
+				<div>
+					<a className={detail.searchIcon}>
+						<img src="/static/search.png"/>
+					</a>
+				</div>
+			</div>
 			<div className={detail.soloDisplay}>
 				<img src={this.state.itself?this.state.itself.productImg:""}/>
 				<div>
@@ -24,27 +38,24 @@ class Detail extends React.Component{
 			</div>
 			<div id={detail.designerBrandDiv}></div>
 			<div id={detail.productIntroduction}>
-				<div className={detail.videoCon}>
-				     <video src={this.state.video} controls="controls" key={this.state.video}>
-						your browser does not support the video tag
-					 </video>
-				</div>
-			{
-				this.state.itemDetailIntroVoList.map((item,index)=>
-					item.type===1?
-					<p className="productIntroductionDec" key={index}>{item.content}</p>
-					:
-					<img src={item.content} className="productIntroductionImg1"/>
-					
-				)
-			}
-			 <img src="https://img.wowdsgn.com/product/introduction/c9c8d862-09df-465c-a92f-628921c7a201_2dimension_900x600.jpg?imageslim" className="productIntroductionImg1"/>
-			<p className="productIntroductionDec">Flototto 家族从 50 年代就开始生产学校家具，在很短的时间里，Flototto 品牌就意味着富有活力的座椅概念，这要归功于那灵活的、人体工学舒适度极强的胶合板 PRO 椅椅身。这张 Flototto 的座椅陪伴了一代又一代人，它依然是当今文化的一部分，同时它也使得 Flototto 品牌在设计历史上拥有一席之地。PRO 胶合板椅从 50 年代至今已经销售了 2100 万张。</p>
-
-			{/*<!-- 前3张图片不使用懒加载 -->*/}
-			 
-			 <img data-src="https://img.wowdsgn.com/product/introduction/8de53a43-3342-45bd-ad06-0b6a90ee261a_2dimension_900x600.jpg?imageslim" className="productIntroductionImg1 lazy" src="https://img.wowdsgn.com/product/introduction/8de53a43-3342-45bd-ad06-0b6a90ee261a_2dimension_900x600.jpg?imageslim"/>
-			<p className="productIntroductionDec">PRO 椅，它集合了最新针对于活跃坐姿的研究：这张全 PP 椅板座身获奖的座椅包装了不间断的移动空间，它也使得使用者变得更加活跃，它也是万能的——用在家里、办公室、学校。PRO 椅符合健康座椅的同时带给你自由、摆 pose 以及符合所需要的一切设计标准。</p>
+				{
+					this.state.itemDetailIntroVoList.map((item,index)=>
+						item.type===3?(
+							<div className={detail.videoCon}>
+							     <video src={this.state.video} controls="controls" key={this.state.video}>
+									your browser does not support the video tag
+								 </video>
+							</div>
+						):(item.type===2?(
+							<img src={item.content} key={item.content} className="productIntroductionImg1"/>
+						):(item.type===1?(
+							<p className={detail.productIntroductionDec} key={index}>{item.content}</p>
+						):(
+							<p className={detail.productIntroductionSubTitle} key={index}>{item.content}</p>
+						)
+						))
+					)
+				}
 			</div>
 			<ul className={detail.youMaybeLike}>
 	            {
