@@ -4,7 +4,8 @@ import axios from 'axios'
 import obj from './indexZero.module.scss'
 import ReactDOM from 'react-dom'
 import { PullToRefresh, Button } from 'antd-mobile';
-import {Link , NavLink} from 'react-router-dom'
+import {Link , NavLink} from 'react-router-dom';
+import BackTop from '../BackTop/backtop';
 
 
 class Zero extends React.Component{
@@ -26,6 +27,7 @@ constructor(props) {
 
 	render(){
 		return <div>
+      
 		<PullToRefresh
         damping={80}
         ref={el => this.ptr = el}
@@ -107,6 +109,7 @@ constructor(props) {
 	:null
 }
 	 </PullToRefresh>
+	
 		</div>
 	}
 	

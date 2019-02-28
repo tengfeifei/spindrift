@@ -2,6 +2,7 @@ import React from 'react'
 import ReactSwipe from 'react-swipe';
 import axios from 'axios'
 import obj from './indexThree.module.scss'
+import BackTop from '../BackTop/backtop'
 
 
 class Three extends React.Component{
@@ -88,7 +89,7 @@ class Three extends React.Component{
 			:null
 
 		}
-
+       <BackTop></BackTop>
 		</div>
 	}
 	componentDidMount(){

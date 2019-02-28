@@ -2,9 +2,9 @@ import React from 'react'
 import Swiper from 'swiper'
 import ReactSwipe from 'react-swipe';
 import 'swiper/dist/css/swiper.min.css'
-// import 'swiper/dist/js/swiper.min.js'
 import home from './indexOne.module.scss'
 import axios from 'axios'
+import BackTop from '../BackTop/backtop'
 class One extends React.Component{
 	constructor(props){
        super(props);
@@ -77,6 +77,7 @@ class One extends React.Component{
 		<div className={home.nomore}>
 			<h3>没有更多了</h3>
 		</div>
+		<BackTop></BackTop>
 	</div>
 	}
 	componentDidMount(){
