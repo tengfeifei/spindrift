@@ -13,9 +13,8 @@ class classNameDetail extends Component{
     constructor(props){
         super(props);
         this.state={
-            classlist:[],
             newindex:1,
-            currentIndex:1,
+            currentIndex:1
 
         }
     };
@@ -25,10 +24,14 @@ class classNameDetail extends Component{
             type:'HideTabbar',
             payload:false
         })
+        store.dispatch({
+            type:this.props.match.params.myid,
+            payload:this.props.match.params.myid
+        })
         var swiper = new Swiper('.swiper-container', {
           slidesPerView: 4,
           spaceBetween: 30
-        });
+        })
     };
      componentWillUnmount(){
         store.dispatch({

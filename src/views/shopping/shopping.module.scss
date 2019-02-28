@@ -1,0 +1,85 @@
+.box_ghost_container {
+      background: #bd7673;
+      width: 100px;
+      height: 100px;
+      border-radius: 100px 100px 0 0;
+      position: relative;
+      margin: 0 auto;
+      animation: upndown 3s ease-in-out infinite;
+      .box_ghost_eyes {
+        position: absolute;
+        left: 50%;
+        top: 45%;
+        height: 12px;
+        width: 70px;
+        .box_eye_left {
+          width: 12px;
+          height: 12px;
+          background: #fff;
+          border-radius: 50%;
+          margin: 0 10px;
+          position: absolute;
+          left: 0;
+          animation: left 3s linear infinite;
+        }
+        .box_eye_right {
+          width: 12px;
+          height: 12px;
+          background: #fff;
+          border-radius: 50%;
+          margin: 0 10px;
+          position: absolute;
+          right: 0;
+          animation: left 3s linear infinite;
+        }
+      }
+      .box_ghost_bottom {
+        display: flex;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        div {
+          flex-grow: 1;
+          position: relative;
+          top: -10px;
+          height: 20px;
+          border-radius: 100%;
+          background-color: #bd7673;
+        }
+        div:nth-child(2n) {
+          top: -12px;
+          margin: 0 -0px;
+          border-top: 15px solid #fff;
+          background: transparent;
+        }
+      }
+    }
+@keyframes upndown {
+    0% {
+      transform: translateY(5px);
+    }
+    50% {
+      transform: translateY(25px);
+    }
+    100% {
+      transform: translateY(5px);
+    }
+  }
+
+@keyframes left {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.classw{
+  position:fixed;
+  top:50%;
+  left:40%;
+}
