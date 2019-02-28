@@ -3,31 +3,27 @@ import Narbar from '../../compenents/navbar/navbar'
 import claobj from './classdetail.module.scss';
 import Swiper from 'swiper';
 import "swiper/dist/css/swiper.css";
-import axios from 'axios'
+import axios from 'axios';
+import One from '../../compenents/classone/classone'
+import Two from '../../compenents/classtwo/classtwo'
+import Three from '../../compenents/classthree/classthree'
 
 class classNameDetail extends Component{
     constructor(props){
         super(props);
         this.state={
-            addClass:false,
-            classlist:[]
+            classlist:[],
+            newindex:1,
+            currentIndex:1,
 
         }
     };
     
-    componentDidMount(){
+    componentDidMount(index){
         var swiper = new Swiper('.swiper-container', {
           slidesPerView: 4,
           spaceBetween: 30
         });
-        axios({
-            url:`/pages/category/${this.props.match.params.myid}?currentPage=1&sort=onShelfTime&order=desc&_=1551263551296`
-        }).then(res=>{
-            console.log(res.data.data)
-            this.setState({
-                classlist:res.data.data,
-            })
-        })
     };
     render(){
         var add = this.state.addClass?"caldiv":"calcli";
@@ -43,10 +39,10 @@ class classNameDetail extends Component{
             </div>
             <div className={claobj.imglis}>
                 <ul className={claobj.navul}>
-                    <li><a href="javascript:;">上新</a></li>
-                    <li><a href="javascript:;">销量</a></li>
+                    <li><a href="javascript:;" className={this.state.newindex===1?claobj.newscla:""} onClick={this.handleClicknew.bind(this,1)}>上新</a></li>
+                    <li><a href="javascript:;"  className={this.state.newindex===2?claobj.newscla:""} onClick={this.handleClicknew.bind(this,2)}>销量</a></li>
                     <li>
-                        <a href="javascript:;">
+                        <a href="javascript:;"  className={this.state.newindex===3?claobj.newscla:""} onClick={this.handleClicknew.bind(this,3)}>
                             价格
                             <div>
                                 <span>∧</span>
@@ -55,20 +51,9 @@ class classNameDetail extends Component{
                         </a>
                     </li>
                 </ul>
-                <ul className={claobj.imgul}>
-                    {
-                        this.state.classlist?
-                        this.state.classlist.map((item)=>
-                            <li key={item.parentProductId} onClick={this.handleClickClass.bind(this)}>
-                                <img src={item.productImg}/>
-                                <p className={claobj.clap}>{item.productTitle}</p>
-                                <span>¥{item.sellPrice}</span>
-                                <p className={claobj.claname}>{item.prizeOrSlogan} </p>
-                            </li>
-                            )
-                        :null
-                    }
-                </ul>
+                {
+                    this.showmyComponent(this.state.newindex)
+                }
             </div>
         </div>
     };
@@ -428,6 +413,22 @@ class classNameDetail extends Component{
     }
     handleClickClass(){
 
+    }
+    handleClicknew(index){
+        this.setState({
+            newindex:index
+        })
+    }
+    showmyComponent(index){
+        console.log(index)
+        switch(index){
+              case 1:
+                 return <One/>;
+              case 2:
+                return  <Two/>;
+              case 3:
+                 return <Three/>;
+        }
     }
 
 }
