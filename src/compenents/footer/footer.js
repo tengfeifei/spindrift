@@ -15,7 +15,6 @@ class Footer extends Component {
   }
   componentDidMount(){
     store.subscribe(()=>{
-      console.log(store.getState())
       this.setState({
         isShow:store.getState().tabbarReducer
       })

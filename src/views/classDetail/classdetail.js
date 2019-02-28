@@ -434,7 +434,7 @@ class classNameDetail extends Component{
         })
     }
     showmyComponent(index){
-        console.log(index)
+       
         switch(index){
               case 1:
                  return <One/>;

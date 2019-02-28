@@ -14,7 +14,6 @@ class List extends React.Component{
     	axios({
     		url:'/topic/1151/products?_=1551165782907'
     	}).then(res=>{
-    		console.log(res.data);
     		this.setState({
     			productlist:res.data.lists
     		})

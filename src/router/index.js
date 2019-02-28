@@ -15,7 +15,7 @@ var router=(
 		<App>
 			<Switch>
 				<Route path='/list' component={List}></Route>
-				<Route path='/detail' component={Detail}></Route>
+				<Route path='/detail/:myid/:id/:index' component={Detail}></Route>
 				<Route path='/index' component={Index}></Route>
 				<Route path='/class' component={Class}></Route>
 				<Route path='/info' component={Info}></Route>

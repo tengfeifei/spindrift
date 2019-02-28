@@ -5,6 +5,8 @@ import 'swiper/dist/css/swiper.min.css'
 import home from './indexOne.module.scss'
 import axios from 'axios'
 import BackTop from '../BackTop/backtop'
+import {Link , NavLink} from 'react-router-dom'
+import store from '../../store/store'
 class One extends React.Component{
 	constructor(props){
        super(props);
@@ -18,7 +20,8 @@ class One extends React.Component{
 	}
 	render(){
 		return <div className={home.furniture}>
-		{this.state.bannerlist.length?
+		{
+			this.state.bannerlist.length?
 				<ReactSwipe
 			        className="carousel"
 			        swipeOptions={{ continuous: true, auto: 2000 ,stopPropagation: false,  disableScroll: false 	 }}
@@ -38,16 +41,16 @@ class One extends React.Component{
     		{this.state.products.length?
     			 <div className="swiper-container">
     			    <div className="swiper-wrapper">	   
-    				   	{this.state.products.map((item)=>
+    				   	{this.state.products.map((item,index)=>
     				   	<div className="swiper-slide" key={item.productId}>
     				   	  	<div   className={home.middel}>
-    				   	   	<a href="javascript:;" >
+    				   	   	<div onClick={this.jumpClick.bind(this,item.productId,item.parentProductId,index)}  > 
     				   	   		<img src={item.productImg}/>
     				   	   		<div className={home.productdetail}>
     				   	   			<p>{item.productTitle}</p>
     				   	   			<span>￥{item.sellPrice}</span>
     				   	   		</div>
-    				   	   	</a>
+    				   	   	</div>
     				   	   </div>
     				   		
     				   	</div>
@@ -80,7 +83,7 @@ class One extends React.Component{
 		<BackTop></BackTop>
 	</div>
 	}
-	componentDidMount(){
+	componentDidMount(){        
 		axios({
 			url:'/v2/page?pageId=1&tabId=10005&currentPage=1&pageSize=10&_=1551265422223'
 		}).then(res=>{
@@ -91,6 +94,10 @@ class One extends React.Component{
 				hotproducts:res.data.data.modules[2].moduleContent.banners,
 				hottopic:res.data.data.modules[2].moduleName
 			})
+			store.dispatch({
+            type:'products',
+            payload:this.state.products
+        })
 		})
 
 	}
@@ -100,6 +107,11 @@ class One extends React.Component{
 		     spaceBetween: 30,
 		     freeMode: true
 		   })
+	}
+
+jumpClick(id,productId,index){
+
+		this.props.history.push(`/detail/${id}/${productId}/${index}`)
 	}
 }
 

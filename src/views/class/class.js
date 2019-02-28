@@ -83,8 +83,7 @@ class Class extends React.Component {
             )
     }
     handleClick(id){
-        console.log(id);
-        console.log(this.refs.id)
+        
         this.props.history.push(`/category/${id}`)
     }
 }

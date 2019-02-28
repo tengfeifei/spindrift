@@ -98,7 +98,6 @@ class Three extends React.Component{
 			url:'/v2/page?pageId=1&tabId=10010&currentPage=1&pageSize=10&_=1551263481513'
 
 		}).then(res=>{
-			console.log(res.data.data.modules[6])
 			this.setState({
 				bannerList:res.data.data.modules[0].moduleContent.banners,
 				dataList:res.data.data.modules.slice(1,6),

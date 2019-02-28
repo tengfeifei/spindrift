@@ -41,12 +41,11 @@ class Index extends React.Component{
 			}
 			
 showComponent(index){
-	console.log(index)
 		switch(index){
 		      case 0:
 		     	 return <Zero/>;
 		      case 1:
-		     	 return <One/>;
+		     	 return <One {...this.props}/>;
 		      case 2:
 		      	return  <Two/>;
 		      case 3:
