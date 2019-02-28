@@ -5,6 +5,7 @@ import obj from './indexTwo.module.scss'
 import Swiper from 'swiper'
 import 'swiper/dist/css/swiper.min.css'
 import 'swiper/dist/js/swiper.min.js'
+import BackTop from '../BackTop/backtop'
 
 class TWo extends React.Component{
 
@@ -66,8 +67,8 @@ class TWo extends React.Component{
 			<a href='javascript:;'>查看全部</a>
 		</div>
 	</div>
-
-		</div>
+    <BackTop></BackTop>
+    </div>
 	}
 	componentDidMount(){
 		 
