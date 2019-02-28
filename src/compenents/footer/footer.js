@@ -1,12 +1,30 @@
 import React, { Component } from 'react';
 import {Link , NavLink} from 'react-router-dom'
 import obj from './footer.module.scss'
+import store from '../../store/store.js'
 
 
 
 class Footer extends Component {
+  constructor(props) {
+    super(props);
+  
+    this.state = {
+      isShow:store.getState().tabbarReducer
+    };
+  }
+  componentDidMount(){
+    store.subscribe(()=>{
+      console.log(store.getState())
+      this.setState({
+        isShow:store.getState().tabbarReducer
+      })
+     
+    })
+  }
   render() {
     return <div>
+    {   this.state.isShow?
          		<ul className={obj.footer}>  
              		 <li>
              		 	<NavLink to='/index' activeClassName={obj.active} replace >             
@@ -39,6 +57,8 @@ class Footer extends Component {
               			</NavLink>
               		 </li>
               	</ul>
+                :null
+              }
     		</div>
     
   }

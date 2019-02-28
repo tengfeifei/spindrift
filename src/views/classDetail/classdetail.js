@@ -7,6 +7,7 @@ import axios from 'axios';
 import One from '../../compenents/classone/classone'
 import Two from '../../compenents/classtwo/classtwo'
 import Three from '../../compenents/classthree/classthree'
+import store from '../../store/store.js'
 
 class classNameDetail extends Component{
     constructor(props){
@@ -20,11 +21,21 @@ class classNameDetail extends Component{
     };
     
     componentDidMount(index){
+        store.dispatch({
+            type:'HideTabbar',
+            payload:false
+        })
         var swiper = new Swiper('.swiper-container', {
           slidesPerView: 4,
           spaceBetween: 30
         });
     };
+     componentWillUnmount(){
+        store.dispatch({
+            type:'ShowTabbar',
+            payload:true
+        })
+    }
     render(){
         var add = this.state.addClass?"caldiv":"calcli";
         return <div>
@@ -430,6 +441,7 @@ class classNameDetail extends Component{
                  return <Three/>;
         }
     }
+   
 
 }
 export default classNameDetail;
