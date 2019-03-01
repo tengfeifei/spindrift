@@ -21,10 +21,10 @@ class classNameDetail extends Component{
     };
     
     componentDidMount(index){
-        // store.dispatch({
-        //     type:'HideTabbar',
-        //     payload:false
-        // })
+        store.dispatch({
+            type:'HideTabbar',
+            payload:false
+        })
         // store.dispatch({
         //     type:this.props.match.params.myid,
         //     payload:this.props.match.params.myid
@@ -34,12 +34,12 @@ class classNameDetail extends Component{
           spaceBetween: 30
         })
     };
-    //  componentWillUnmount(){
-    //     store.dispatch({
-    //         type:'ShowTabbar',
-    //         payload:true
-    //     })
-    // }
+     componentWillUnmount(){
+        store.dispatch({
+            type:'ShowTabbar',
+            payload:true
+        })
+    }
     render(){
         var add = this.state.addClass?"caldiv":"calcli";
         return <div>
@@ -71,6 +71,7 @@ class classNameDetail extends Component{
                 }
             </div>
             <BackTop/>
+
         </div>
     };
     classNamelunbo(){
