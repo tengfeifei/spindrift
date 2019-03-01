@@ -104,11 +104,14 @@
 	margin:10px auto;
 	font-size: 14px;
 }
-.remeber{
-	float: left;
-	margin-left: 30px;
+.other{
+	width: 345px;
+	margin:5px auto;
+	.remeber{
+		float: left;
+	}
+	.fastregister{
+		float: right;
+	}
 }
-.fastregister{
-	float: right;
-	margin-right: 35px;
-}
+

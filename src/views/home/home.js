@@ -56,13 +56,16 @@ class Home extends React.Component{
 		<div className={home.confirm}>
 		   确认
 		</div>
-       {
-       	this.state.isShow?null
-	    :<p className={home.remeber}>√一个月内记住登录</p>
-       	
-       }
+		<div className={home.other}>
+	       {
+	       	this.state.isShow?null
+		    :<p className={home.remeber}><input type="checkbox" />一个月内记住登录</p>
+	       	
+	       }
+		    <p className={home.fastregister}>快速注册</p>
+		</div>
 
-	    <p className={home.fastregister}>快速注册</p>
+    
 	</div>
 	}
 	handleClick(){
