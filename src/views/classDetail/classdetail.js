@@ -434,7 +434,7 @@ class classNameDetail extends Component{
         })
     }
     showmyComponent(index){
-        console.log(this.props.match.params.myid)
+        // console.log(this.props.match.params.myid)
         switch(index){
               case 1:
                  return <One {...this.props}/>;
