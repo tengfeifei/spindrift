@@ -20,25 +20,25 @@ class classNameDetail extends Component{
     };
     
     componentDidMount(index){
-        store.dispatch({
-            type:'HideTabbar',
-            payload:false
-        })
-        store.dispatch({
-            type:this.props.match.params.myid,
-            payload:this.props.match.params.myid
-        })
+        // store.dispatch({
+        //     type:'HideTabbar',
+        //     payload:false
+        // })
+        // store.dispatch({
+        //     type:this.props.match.params.myid,
+        //     payload:this.props.match.params.myid
+        // })
         var swiper = new Swiper('.swiper-container', {
           slidesPerView: 4,
           spaceBetween: 30
         })
     };
-     componentWillUnmount(){
-        store.dispatch({
-            type:'ShowTabbar',
-            payload:true
-        })
-    }
+    //  componentWillUnmount(){
+    //     store.dispatch({
+    //         type:'ShowTabbar',
+    //         payload:true
+    //     })
+    // }
     render(){
         var add = this.state.addClass?"caldiv":"calcli";
         return <div>
@@ -434,14 +434,14 @@ class classNameDetail extends Component{
         })
     }
     showmyComponent(index){
-       
+        console.log(this.props.match.params.myid)
         switch(index){
               case 1:
-                 return <One/>;
+                 return <One {...this.props}/>;
               case 2:
-                return  <Two/>;
+                return  <Two {...this.props}/>;
               case 3:
-                 return <Three/>;
+                 return <Three {...this.props}/>;
         }
     }
    

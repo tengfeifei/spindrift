@@ -1,23 +1,23 @@
 import React from 'react'
 import axios from 'axios';
 import claobjtw from './classtwo.module.scss';
-import store from '../../store/store.js'
+// import store from '../../store/store.js'
 class Two extends React.Component{
     constructor(props){
         super(props);
         this.state={
             classtwlist:[],
-            myid:store.getState().listReducer
+            // myid:store.getState().listReducer
         }
     };
     componentDidMount(){
-        store.subscribe(()=>{
-            this.getState={
-                myid:store.getState().listReducer
-            }
-        })
+        // store.subscribe(()=>{
+        //     this.getState={
+        //         myid:store.getState().listReducer
+        //     }
+        // })
         axios({
-            url:`/pages/category/${this.state.myid}?currentPage=1&sort=sales&order=desc&_=1551263551296`
+            url:`/pages/category/${this.props.match.params.myid}?currentPage=1&sort=sales&order=desc&_=1551263551296`
         }).then(res=>{
         
             this.setState({

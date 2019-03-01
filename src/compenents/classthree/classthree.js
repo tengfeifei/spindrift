@@ -1,24 +1,24 @@
 import React from 'react'
 import axios from 'axios';
 import claobjth from './classthree.module.scss';
-import store from '../../store/store.js'
+// import store from '../../store/store.js'
 class Three extends React.Component{
     constructor(props){
         super(props);
         this.state={
             classthlist:[],
-            myid:store.getState().listReducer
+            // myid:store.getState().listReducer
 
         }
     };
     componentDidMount(){
-        store.subscribe(()=>{
-            this.setState={
-                myid:store.getState().listReducer
-            }
-        })
+        // store.subscribe(()=>{
+        //     this.setState={
+        //         // myid:store.getState().listReducer
+        //     }
+        // })
         axios({
-            url:`/pages/category/${this.state.myid}?currentPage=1&sort=price&order=asc&_=1551263551296`
+            url:`/pages/category/${this.props.match.params.myid}?currentPage=1&sort=price&order=asc&_=1551263551296`
         }).then(res=>{
             
             this.setState({
