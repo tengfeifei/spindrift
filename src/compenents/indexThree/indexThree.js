@@ -85,11 +85,15 @@ class Three extends React.Component{
 					<div className={obj.three}>
 						<a href='javascript:;'>查看全部</a>
 					</div>
+					<div className={obj.last}>
+			没有更多了
+		</div>
 			</div>
 			)
 			:null
 
 		}
+		
        <BackTop></BackTop>
 		</div>
 	}

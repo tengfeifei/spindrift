@@ -2,6 +2,8 @@ import React from 'react'
 import { List } from 'antd-mobile';
 import 'antd-mobile/dist/antd-mobile.css';
 import objf from "./class.module.scss"
+import BackTop from '../../compenents/BackTop/backtop';
+
 
 const Item = List.Item;
 const Brief = Item.Brief;
@@ -79,6 +81,7 @@ class Class extends React.Component {
                 </Item>
 
               </List>
+              <BackTop/>
             </div>
             )
     }

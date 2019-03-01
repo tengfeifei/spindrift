@@ -8,6 +8,7 @@ import One from '../../compenents/classone/classone'
 import Two from '../../compenents/classtwo/classtwo'
 import Three from '../../compenents/classthree/classthree'
 import store from '../../store/store.js'
+import BackTop from '../../compenents/BackTop/backtop';
 
 class classNameDetail extends Component{
     constructor(props){
@@ -69,6 +70,7 @@ class classNameDetail extends Component{
                     this.showmyComponent(this.state.newindex)
                 }
             </div>
+            <BackTop/>
         </div>
     };
     classNamelunbo(){

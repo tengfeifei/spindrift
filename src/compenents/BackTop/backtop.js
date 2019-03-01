@@ -26,7 +26,7 @@ import top from './backtop.module.scss'
  	  }
  	handleScroll(e){
  		var scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
- 		if(scrollTop>300){
+ 		if(scrollTop>250){
  			this.setState({
  				isShow:true
  			})

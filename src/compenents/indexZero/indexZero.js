@@ -60,6 +60,7 @@ constructor(props) {
          )
         }}
       >
+      
 			{
 				this.state.bannerList.length?
 			<ReactSwipe
@@ -106,6 +107,7 @@ constructor(props) {
 	</div>
 	:null
 }
+
 	 </PullToRefresh>
 	
 		</div>
