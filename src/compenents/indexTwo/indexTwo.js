@@ -6,6 +6,7 @@ import Swiper from 'swiper'
 import 'swiper/dist/css/swiper.min.css'
 import 'swiper/dist/js/swiper.min.js'
 import BackTop from '../BackTop/backtop'
+import store from '../../store/store'
 
 class TWo extends React.Component{
 
@@ -15,7 +16,7 @@ class TWo extends React.Component{
 	  this.state = {
 	  	bannerList:[],
 	  	dataList:[],
-	  	products:[]
+	  	productsList:[]
 	  };
 	}
 	render(){
@@ -41,21 +42,21 @@ class TWo extends React.Component{
 			<h3>{this.state.dataList.moduleDescription}</h3>
 		</div>
 		<div>
-		{this.state.products?
+		{this.state.productsList?
 			 <div className="swiper-container">
 			    <div className="swiper-wrapper">
 				   
-				   	{this.state.products.map((item)=>
+				   	{this.state.productsList.map((item,index)=>
 				   	 <div className="swiper-slide"  key={item.productId}>	
 					   	<div  className={obj.middel}>
-					    	<a href="javascript:;" >
+					     	<div onClick={this.jumpClick.bind(this,item.productId,item.parentProductId,index)}  > 
 					    		<img src={item.productImg}/>
 					    	
 					    		<div>
 					    			<p>{item.productTitle}</p>
 					    			<span>￥{item.sellPrice}</span>
 					    		</div>
-					    	</a>
+					    	</div>
 					    </div>
 					   </div>
 				   	)}				    			
@@ -76,12 +77,16 @@ class TWo extends React.Component{
 			url:'/v2/page?pageId=1&tabId=10006&currentPage=1&pageSize=10&_=1551250803012'
 
 		}).then(res=>{
-			
+			console.log(res.data.data.modules[1].moduleContent.products)
 			this.setState({
 				bannerList:res.data.data.modules[0].moduleContent.banners,
 				dataList:res.data.data.modules[1],
-				products:res.data.data.modules[1].moduleContent.products
+				productsList:res.data.data.modules[1].moduleContent.products
 			})
+			store.dispatch({
+            type:'products',
+            payload:this.state.productsList
+        })
 		})
 
 	}
@@ -92,6 +97,11 @@ class TWo extends React.Component{
 		      freeMode: true
 		    });
 
+	}
+
+jumpClick(id,productId,index){
+
+		this.props.history.push(`/detail/${id}/${productId}/${index}`)
 	}
 
 

@@ -4,9 +4,8 @@ export var products =(prevState=[],action)=>{
 
     switch(type){
         case "products":
-        var newlist=[...prevState,...payload]
 
-        return newlist;
+        return payload;
         default:
         return prevState
 

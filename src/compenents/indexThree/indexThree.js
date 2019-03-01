@@ -3,6 +3,7 @@ import ReactSwipe from 'react-swipe';
 import axios from 'axios'
 import obj from './indexThree.module.scss'
 import BackTop from '../BackTop/backtop'
+import store from '../../store/store'
 
 
 class Three extends React.Component{
@@ -65,13 +66,13 @@ class Three extends React.Component{
 												return
 											}
 										return	<div key={item.productId}>
-													<a href='javascript:;'>
+													<div onClick={this.jumpClick.bind(this,item.productId,item.parentProductId,index)}  > 
 														<img src={item.productImg}/>
 														<div>
 																<p>{item.productName}</p>
 																<span>¥{item.sellPrice}</span>
 														</div>
-													</a>
+													</div>
 											</div>
 										}
 									)
@@ -98,6 +99,7 @@ class Three extends React.Component{
 			url:'/v2/page?pageId=1&tabId=10010&currentPage=1&pageSize=10&_=1551263481513'
 
 		}).then(res=>{
+			console.log(res.data.data.modules[6].moduleContent.products)
 			this.setState({
 				bannerList:res.data.data.modules[0].moduleContent.banners,
 				dataList:res.data.data.modules.slice(1,6),
@@ -105,7 +107,18 @@ class Three extends React.Component{
 				list:res.data.data.modules[6].moduleContent.products
 				
 			})
+			store.dispatch({
+            type:'products',
+            payload:this.state.list
+        })
 		})
+		
+	
+
 }
+jumpClick(id,productId,index){
+
+		this.props.history.push(`/detail/${id}/${productId}/${index}`)
+	}
 }
 export default Three
