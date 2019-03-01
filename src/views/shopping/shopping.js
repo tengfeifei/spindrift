@@ -3,7 +3,7 @@ import box from './shopping.module.scss'
 class Shopping extends React.Component{
 
 	render(){
-		return <div>
+		return <div className={box.body}>
             <div className={box.box_ghost_container} style={{marginTop: '150px'}}>
                   <div className={box.box_ghost_eyes} style={{transform: 'translate(-36.5989%, -1.4218%)'}}>
                     <div className={box.box_eye_left}></div>
