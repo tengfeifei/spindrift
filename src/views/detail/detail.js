@@ -42,7 +42,26 @@ class Detail extends React.Component{
 					<span>￥{this.state.title?this.state.title.originalPrice:""}</span>
 				</div>
 			</div>
-			<div id={detail.designerBrandDiv}></div>
+
+			<div id={detail.designerBrandDiv}>
+				<div id={detail.brand} brandid="890">
+				            <div id={detail.brandCountry}>
+				                <img src="/static/icon-location.png" className={detail.brandLocationIcon}/>
+				                <span id="brandCountryName"></span>
+				            </div>
+				            <div id={detail.brandLogoImg}>
+				           		<img  src="/static/brand.jpg"/>
+				            </div>
+				            <div className={detail.brandInfo}>
+				                <p id={detail.brandName}>Flototto</p>
+				                <p id={detail.brandIntroduction}>Flototto 为一家族企业，目前为第四代经营。  
+				1906年 Heinrich Flototto在德国中部城市Gütersloh成立Flototto 木业 
+				1946年 Heinrich 的儿子Fritz与Franz接任，并开设锯板车间并发展家用及学校家具 
+				1961-1991，Flototto 第三代三对夫妻（ Elmar &amp; Anna Flötotto, Reinhard &amp; Barbara Flötotto, Hubertus &amp; Ingrid Flötotto）开设继承Flototto公司，并发展了各类业务。 
+				1990年，Flototto的品牌在德国也得到了广泛推广，平均每三个德国人就有一个人知道Flototto品牌。</p>
+				            </div>
+				</div>
+			</div>
 			<div id={detail.productIntroduction}>
 				{
 					this.state.itemDetailIntroVoList.map((item,index)=>
@@ -140,3 +159,11 @@ class Detail extends React.Component{
     }
 }
 export default Detail
+
+
+
+
+
+
+
+

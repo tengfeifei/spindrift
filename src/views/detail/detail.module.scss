@@ -51,9 +51,54 @@
 	}
 	#designerBrandDiv{
 		width:100%;
-		height:80px;
-		background-color: black;
-		opacity: .4;
+		height:100px;	
+		background-image: url('/static/designerBackground.png');
+		opacity: .8;
+		overflow: hidden;
+		#brand{
+			width:100%;
+			height:100%;
+			position:relative;
+			display:flex;
+			#brandCountry{
+				position:absolute;
+				right:0;
+				top:0;
+			}
+			#brandLogoImg{
+				flex:3;
+				img{
+					width:80px;
+					height:80px;
+					border-radius: 60px;
+					margin: 10px ;	
+
+				}
+			}
+			.brandInfo{
+				flex:7;
+				color:white;
+				height:100%;
+
+				#brandName{
+					width:100%;
+					padding:10px 0;
+					box-sizing: border-box;
+					margin-right: 10px;					
+				}
+				#brandIntroduction{
+					width:100%;
+					padding:0;
+					box-sizing: border-box;
+					margin-right: 10px;	
+					height:60px;
+					overflow:hidden;
+					text-overflow:ellipsis;
+					white-space:nowrap;
+				}
+			}
+
+		}	
 	}
 	#productIntroduction{		
 		.videoCon{
