@@ -28,6 +28,14 @@ class One extends React.Component{
                 })
             })
             })
+        axios({
+                url:`/pages/category/${store.getState().listReducer}?currentPage=1&sort=onShelfTime&order=desc&_=1551263551296`
+            }).then(res=>{
+                
+                this.setState({
+                    classonelist:res.data.data
+                })
+        })
         
 
     };
