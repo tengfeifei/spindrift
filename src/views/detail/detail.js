@@ -16,7 +16,40 @@ class Detail extends React.Component{
 			
 		}
 	}
+componentWillReceiveProps(props){
+	console.log(props,'1213')
 
+	store.subscribe(()=>{
+   			this.setState({
+   				title:store.getState().products[this.props.match.params.index]
+
+   			})
+      
+     
+    })
+		store.dispatch({
+            type:'HideTabbar',
+            payload:false
+        })
+		axios({
+			url:`/recommend/item?skuId=${props.match.params.myid}&_=1551320586313`			
+		}).then(res=>{
+			console.log(res.data.data)
+			this.setState({
+				productList: res.data.data
+			})
+		})
+		axios({
+			url:`/itemdetail/spuInfos/${props.match.params.id}?_=1551320586283`
+		}).then(res=>{
+		
+			this.setState({
+				itemDetailIntroVoList:res.data.data.itemDetailIntroVoList,
+				video: res.data.data.itemDetailIntroVoList[0].content.video
+			})
+		})
+
+}
 	render(){
 		return( 
 		<div className={detail.detail}>
@@ -62,6 +95,7 @@ class Detail extends React.Component{
 				            </div>
 				</div>
 			</div>
+			
 			<div id={detail.productIntroduction}>
 				{
 					this.state.itemDetailIntroVoList.map((item,index)=>
@@ -84,8 +118,8 @@ class Detail extends React.Component{
 			</div>
 			<ul className={detail.youMaybeLike}>
 	            {
-	            	this.state.productList.map((item)=>
-	                <li key={item.productId}>
+	            	this.state.productList.map((item,index)=>
+	                <li key={item.productId} onClick={this.detailClick.bind(this,item.productId,item.parentProductId,index)}>
 	                	<a>
 	                    	<img src={item.productImg}/>
 	                    	<p className="complexProductTitle">{item.productTitle}</p>
@@ -95,6 +129,7 @@ class Detail extends React.Component{
 	            	)
 	            }
 			</ul>
+)}
 {/*			<div className={detail.shopbar}>
 				<ul>
 					<li>icon</li>
@@ -112,6 +147,7 @@ class Detail extends React.Component{
 
 	componentDidMount(){
 
+
 		 store.subscribe(()=>{
    			this.setState({
    				title:store.getState().products[this.props.match.params.index]
@@ -127,7 +163,7 @@ class Detail extends React.Component{
 		axios({
 			url:`/recommend/item?skuId=${this.props.match.params.myid}&_=1551320586313`			
 		}).then(res=>{
-			
+			console.log(res.data.data)
 			this.setState({
 				productList: res.data.data
 			})
@@ -157,6 +193,16 @@ class Detail extends React.Component{
             payload:true
         })
     }
+    detailClick(id,productId,index){
+    	console.log(id)
+    	console.log(index)
+
+		this.props.history.push(`/detail/${id}/${productId}/${index}`)
+		
+
+		
+	}
+
 }
 export default Detail
 

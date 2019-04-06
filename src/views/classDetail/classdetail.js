@@ -19,6 +19,8 @@ class classNameDetail extends Component{
 
         }
     };
+
+    
     
     componentDidMount(index){
         store.dispatch({
